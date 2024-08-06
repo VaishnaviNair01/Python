@@ -1,4 +1,5 @@
 Term Deposit Subscription Prediction
+<br>
 Project Overview
 This project aims to predict whether clients of a retail banking institution will subscribe to a term deposit based on their personal information and details of previous marketing campaigns. The model will help the bank target customers more effectively through telephonic marketing campaigns, thereby optimizing their investment in call centers.
 

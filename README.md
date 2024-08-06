@@ -41,60 +41,25 @@
 <h2>Steps Involved</h2>
 
 <h3>1. Data Loading and Exploration</h3>
-<pre><code>import pandas as pd
-
-# Load the data
-train_data = pd.read_csv('train.csv')
-test_data = pd.read_csv('test.csv')
-
-# Explore the data
-print(train_data.head())
-print(train_data.describe())
-print(train_data.info())</code></pre>
+<p>Load the datasets and explore them to understand the structure and identify any missing values.</p>
 
 <h3>2. Data Preprocessing</h3>
-<pre><code>from sklearn.preprocessing import LabelEncoder
-
-# Handle missing values
-train_data.isnull().sum()
-
-# Encode categorical variables
-categorical_cols = ['job', 'marital', 'education', 'default', 'housing', 'loan', 'contact', 'month', 'day_of_week', 'poutcome']
-le = LabelEncoder()
-for col in categorical_cols:
-    train_data[col] = le.fit_transform(train_data[col])
-    test_data[col] = le.transform(test_data[col])</code></pre>
+<p>Handle missing values, encode categorical variables, and normalize or scale features if necessary.</p>
 
 <h3>3. Train-Test Split</h3>
-<pre><code>from sklearn.model_selection import train_test_split
-
-X = train_data.drop(['ID', 'subscribed'], axis=1)
-y = train_data['subscribed']
-
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)</code></pre>
+<p>Split the training data into training and validation sets to evaluate model performance.</p>
 
 <h3>4. Model Selection and Training</h3>
-<pre><code>from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
-
-# Choose and train the model
-model = RandomForestClassifier(random_state=42)
-model.fit(X_train, y_train)
-
-# Evaluate the model
-y_pred = model.predict(X_val)
-print('Validation Accuracy:', accuracy_score(y_val, y_pred))</code></pre>
+<p>Choose a classification model (e.g., RandomForestClassifier) and train it on the training set. Evaluate the model on the validation set using accuracy.</p>
 
 <h3>5. Predict on Test Data</h3>
-<pre><code>X_test = test_data.drop(['ID'], axis=1)
-test_data['subscribed'] = model.predict(X_test)</code></pre>
+<p>Use the trained model to make predictions on the test dataset.</p>
 
 <h3>6. Save Predictions</h3>
-<pre><code>submission = test_data[['ID', 'subscribed']]
-submission.to_csv('submission.csv', index=False)</code></pre>
+<p>Save the predictions in the required format for submission.</p>
 
 <h2>Results</h2>
-<p>The final model achieved a validation accuracy of <code>[your_accuracy_score]</code> and was used to predict term deposit subscriptions for the test dataset.</p>
+<p>The final model achieved a validation accuracy of <code>0.908802713</code> and was used to predict term deposit subscriptions for the test dataset.</p>
 
 <h2>Conclusion</h2>
 <p>This project demonstrates the application of machine learning techniques to solve a real-world business problem in the banking sector. By accurately predicting potential term deposit subscribers, the bank can optimize its marketing efforts and improve its overall efficiency.</p>
@@ -102,7 +67,7 @@ submission.to_csv('submission.csv', index=False)</code></pre>
 <h2>How to Use</h2>
 <ol>
     <li>Clone the repository.</li>
-    <li>Ensure you have the necessary libraries installed (<code>pandas</code>, <code>sklearn</code>, etc.).</li>
+    <li>Ensure you have the necessary libraries installed (e.g., <code>pandas</code>, <code>sklearn</code>, etc.).</li>
     <li>Place the <code>train.csv</code> and <code>test.csv</code> files in the appropriate directory.</li>
     <li>Run the provided Python script to train the model and generate predictions.</li>
     <li>Check the <code>submission.csv</code> file for the predicted results.</li>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Term Deposit Subscription Prediction</title>
+
 </head>
 <body>
 
